@@ -39,6 +39,7 @@ private:
 	void DrawDude(int x, int y);
 	void DrawPoo(int x, int y);
 	void DrawGameOver(int x, int y);
+	void DrawGameTitle(int x, int y);
 	int ClampScreenX(int x, int width);
 	int ClampScreenY(int y, int height);
 	bool TestColliding(int x0, int y0, int width0, int height0, int x1, int y1, int width1, int height1);
@@ -69,5 +70,6 @@ private:
 	bool poo2IsEaten = false;
 	const int pooWidth = 24;
 	const int pooHeight = 24;
+	bool gameIsStarted = false;
 	/********************************/
 };
