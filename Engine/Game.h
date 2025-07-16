@@ -36,11 +36,31 @@ private:
 	void UpdateModel();
 	/********************************/
 	/*  User Functions              */
+	void DrawDude(int x, int y);
+	void DrawPoo(int x, int y);
+	int ClampScreenX(int x, int width);
+	int ClampScreenY(int y, int height);
+	bool TestColliding(int x0, int y0, int width0, int height0, int x1, int y1, int width1, int height1);
 	/********************************/
 private:
 	MainWindow& wnd;
 	Graphics gfx;
 	/********************************/
 	/*  User Variables              */
+	int dudeX = 400;
+	int dudeY = 300;
+	const int dudeWidth = 20;
+	const int dudeHeight = 20;
+	int poo0X = 200;
+	int poo0Y = 200;
+	bool poo0IsEaten = false;
+	int poo1X = 500;
+	int poo1Y = 500;
+	bool poo1IsEaten = false;
+	int poo2X = 300;
+	int poo2Y = 300;
+	bool poo2IsEaten = false;
+	const int pooWidth = 24;
+	const int pooHeight = 24;
 	/********************************/
 };
