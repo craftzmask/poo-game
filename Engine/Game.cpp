@@ -82,6 +82,61 @@ void Game::UpdateModel()
 	{
 		poo2IsEaten = true;
 	}
+
+	poo0X += poo0vx;
+	poo0Y += poo0vy;
+	poo1X += poo1vx;
+	poo1Y += poo1vy;
+	poo2X += poo2vx;
+	poo2Y += poo2vy;
+
+	{
+		const int oldPooX = poo0X;
+		poo0X = ClampScreenX(poo0X, pooWidth);
+		if (oldPooX != poo0X)
+		{
+			poo0vx = -poo0vx;
+		}
+
+		const int oldPooY = poo0Y;
+		poo0Y = ClampScreenY(poo0Y, pooHeight);
+		if (oldPooY != poo0Y)
+		{
+			poo0vy = -poo0vy;
+		}
+	}
+
+	{
+		const int oldPooX = poo1X;
+		poo1X = ClampScreenX(poo1X, pooWidth);
+		if (oldPooX != poo1X)
+		{
+			poo1vx = -poo1vx;
+		}
+
+		const int oldPooY = poo1Y;
+		poo1Y = ClampScreenY(poo1Y, pooHeight);
+		if (oldPooY != poo1Y)
+		{
+			poo1vy = -poo1vy;
+		}
+	}
+
+	{
+		const int oldPooX = poo2X;
+		poo2X = ClampScreenX(poo2X, pooWidth);
+		if (oldPooX != poo2X)
+		{
+			poo2vx = -poo2vx;
+		}
+
+		const int oldPooY = poo2Y;
+		poo2Y = ClampScreenY(poo2Y, pooHeight);
+		if (oldPooY != poo2Y)
+		{
+			poo2vy = -poo2vy;
+		}
+	}
 }
 
 void Game::DrawDude(int x, int y)
