@@ -23,6 +23,7 @@
 #include "Keyboard.h"
 #include "Mouse.h"
 #include "Graphics.h"
+#include "Poo.h"
 
 class Game
 {
@@ -53,23 +54,9 @@ private:
 	int dudeY = 300;
 	const int dudeWidth = 20;
 	const int dudeHeight = 20;
-	int poo0X = 200;
-	int poo0Y = 200;
-	int poo0vx = 1;
-	int poo0vy = 1;
-	bool poo0IsEaten = false;
-	int poo1X = 500;
-	int poo1Y = 500;
-	int poo1vx = -1;
-	int poo1vy = 1;
-	bool poo1IsEaten = false;
-	int poo2X = 300;
-	int poo2Y = 300;
-	int poo2vx = -1;
-	int poo2vy = -1;
-	bool poo2IsEaten = false;
-	const int pooWidth = 24;
-	const int pooHeight = 24;
+	Poo poo0;
+	Poo poo1;
+	Poo poo2;
 	bool gameIsStarted = false;
 	/********************************/
 };
