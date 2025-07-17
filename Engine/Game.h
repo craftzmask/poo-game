@@ -42,8 +42,6 @@ private:
 	void DrawPoo(int x, int y);
 	void DrawGameOver(int x, int y);
 	void DrawGameTitle(int x, int y);
-	int ClampScreenX(int x, int width);
-	int ClampScreenY(int y, int height);
 	/********************************/
 private:
 	MainWindow& wnd;
