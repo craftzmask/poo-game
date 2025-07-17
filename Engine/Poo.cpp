@@ -30,3 +30,16 @@ void Poo::Update()
 		vy = -vy;
 	}
 }
+
+void Poo::ProcessConsumption(int dudeX, int dudeY, int dudeWidth, int dudeHeight)
+{
+	const int right = x + width;
+	const int bottom = y + height;
+	const int dudeRight = dudeX + dudeWidth;
+	const int dudeBottom = dudeY + dudeHeight;
+
+	if (x <= dudeRight && right >= dudeX && y <= dudeBottom && bottom >= dudeY)
+	{
+		isEaten = true;
+	}
+}

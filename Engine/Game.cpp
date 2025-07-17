@@ -79,18 +79,9 @@ void Game::UpdateModel()
 		dude.x = ClampScreenX(dude.x, dude.width);
 		dude.y = ClampScreenY(dude.y, dude.height);
 
-		if (TestColliding(dude.x, dude.y, dude.width, dude.height, poo0.x, poo0.y, poo0.width, poo0.height))
-		{
-			poo0.isEaten = true;
-		}
-		if (TestColliding(dude.x, dude.y, dude.width, dude.height, poo1.x, poo1.y, poo1.width, poo1.height))
-		{
-			poo1.isEaten = true;
-		}
-		if (TestColliding(dude.x, dude.y, dude.width, dude.height, poo2.x, poo2.y, poo2.width, poo2.height))
-		{
-			poo2.isEaten = true;
-		}
+		poo0.ProcessConsumption(dude.x, dude.y, dude.width, dude.height);
+		poo1.ProcessConsumption(dude.x, dude.y, dude.width, dude.height);
+		poo2.ProcessConsumption(dude.x, dude.y, dude.width, dude.height);
 
 		poo0.Update();
 		poo1.Update();
@@ -29042,16 +29033,6 @@ int Game::ClampScreenY(int y, int height)
 	{
 		return y;
 	}
-}
-
-bool Game::TestColliding(int x0, int y0, int width0, int height0, int x1, int y1, int width1, int height1)
-{
-	const int right0 = x0 + width0;
-	const int bottom0 = y0 + height0;
-	const int right1 = x1 + width1;
-	const int bottom1 = y1 + height1;
-
-	return x0 <= right1 && right0 >= x1 && y0 <= bottom1 && bottom0 >= y1;
 }
 
 void Game::ComposeFrame()

@@ -44,7 +44,6 @@ private:
 	void DrawGameTitle(int x, int y);
 	int ClampScreenX(int x, int width);
 	int ClampScreenY(int y, int height);
-	bool TestColliding(int x0, int y0, int width0, int height0, int x1, int y1, int width1, int height1);
 	/********************************/
 private:
 	MainWindow& wnd;
