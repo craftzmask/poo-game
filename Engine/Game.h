@@ -25,6 +25,7 @@
 #include "Graphics.h"
 #include "Poo.h"
 #include "Dude.h"
+#include "Goal.h"
 #include <random>
 
 class Game
@@ -54,6 +55,7 @@ private:
 	Dude dude;
 	static constexpr int nPoo = 10;
 	Poo poos[nPoo];
+	Goal goal;
 	bool gameIsStarted = false;
 	/********************************/
 };
