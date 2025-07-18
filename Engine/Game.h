@@ -57,5 +57,6 @@ private:
 	Poo poos[nPoo];
 	Goal goal;
 	bool gameIsStarted = false;
+	bool gameIsOver = false;
 	/********************************/
 };

@@ -57,7 +57,7 @@ void Game::Go()
 
 void Game::UpdateModel()
 {
-	if (gameIsStarted)
+	if (gameIsStarted && !gameIsOver)
 	{
 		dude.Update(wnd.kbd);
 		dude.ClampToScreen();
@@ -65,7 +65,10 @@ void Game::UpdateModel()
 		for (int i = 0; i < nPoo; ++i)
 		{
 			poos[i].Update();
-			poos[i].ProcessConsumption(dude);
+			if (poos[i].TestColliding(dude))
+			{
+				gameIsOver = true;
+			}
 		}
 
 		if (goal.TestColliding(dude))
@@ -28432,30 +28435,19 @@ void Game::DrawGameTitle(int x, int y)
 
 void Game::ComposeFrame()
 {
-	bool allEaten = true;
-	for (int i = 0; i < nPoo; ++i)
-	{
-		allEaten = allEaten && poos[i].IsEaten();
-	}
-
-	if (allEaten)
+	if (gameIsOver)
 	{
 		DrawGameOver(358, 268);
 	}
 
 	if (gameIsStarted)
 	{
-		dude.Draw(gfx);
-
-
 		for (int i = 0; i < nPoo; ++i)
 		{
-			if (!poos[i].IsEaten())
-			{
-				poos[i].Draw(gfx);
-			}
+			poos[i].Draw(gfx);
 		}
 
+		dude.Draw(gfx);
 		goal.Draw(gfx);
 	}
 	else

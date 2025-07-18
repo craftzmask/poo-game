@@ -43,18 +43,14 @@ void Poo::Update()
 	}
 }
 
-void Poo::ProcessConsumption(const Dude& dude)
+bool Poo::TestColliding(const Dude& dude)
 {
 	assert(initialized);
 	const int right = x + width;
 	const int bottom = y + height;
 	const int dudeRight = dude.GetX() + dude.GetWidth();
 	const int dudeBottom = dude.GetY() + dude.GetHeight();
-
-	if (x <= dudeRight && right >= dude.GetX() && y <= dudeBottom && bottom >= dude.GetY())
-	{
-		isEaten = true;
-	}
+	return x <= dudeRight && right >= dude.GetX() && y <= dudeBottom && bottom >= dude.GetY();
 }
 
 void Poo::Draw(Graphics& gfx) const
@@ -292,10 +288,4 @@ void Poo::Draw(Graphics& gfx) const
 	gfx.PutPixel(5 + x, 23 + y, 51, 28, 0);
 	gfx.PutPixel(6 + x, 23 + y, 51, 28, 0);
 
-}
-
-bool Poo::IsEaten() const
-{
-	assert(initialized);
-	return isEaten;
 }
