@@ -47,23 +47,7 @@ void Game::UpdateModel()
 {
 	if (gameIsStarted)
 	{
-		if (wnd.kbd.KeyIsPressed(VK_UP))
-		{
-			dude.y -= 1;
-		}
-		if (wnd.kbd.KeyIsPressed(VK_DOWN))
-		{
-			dude.y += 1;
-		}
-		if (wnd.kbd.KeyIsPressed(VK_LEFT))
-		{
-			dude.x -= 1;
-		}
-		if (wnd.kbd.KeyIsPressed(VK_RIGHT))
-		{
-			dude.x += 1;
-		}
-
+		dude.Update(wnd.kbd);
 		dude.ClampToScreen();
 
 		poo0.ProcessConsumption(dude);

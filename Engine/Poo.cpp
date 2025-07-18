@@ -43,10 +43,10 @@ void Poo::ProcessConsumption(const Dude& dude)
 {
 	const int right = x + width;
 	const int bottom = y + height;
-	const int dudeRight = dude.x + dude.width;
-	const int dudeBottom = dude.y + dude.height;
+	const int dudeRight = dude.GetX() + dude.GetWidth();
+	const int dudeBottom = dude.GetY() + dude.GetHeight();
 
-	if (x <= dudeRight && right >= dude.x && y <= dudeBottom && bottom >= dude.y)
+	if (x <= dudeRight && right >= dude.GetX() && y <= dudeBottom && bottom >= dude.GetY())
 	{
 		isEaten = true;
 	}
