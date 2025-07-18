@@ -38,7 +38,6 @@ private:
 	void UpdateModel();
 	/********************************/
 	/*  User Functions              */
-	void DrawDude(int x, int y);
 	void DrawGameOver(int x, int y);
 	void DrawGameTitle(int x, int y);
 	/********************************/
