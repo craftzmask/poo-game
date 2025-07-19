@@ -7,6 +7,9 @@ public:
 	Meter(int in_x, int in_y);
 	void Draw(Graphics& gfx) const;
 	void IncreaseLevel();
+	int GetLevel() const;
+	int GetMaxLevel() const;
+	void ResetLevel();
 private:
 	int x;
 	int y;

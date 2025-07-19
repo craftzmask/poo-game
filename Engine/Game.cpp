@@ -78,6 +78,14 @@ void Game::UpdateModel()
 		{
 			goal.Respawn(xDist(rng), yDist(rng));
 			meter.IncreaseLevel();
+			if (meter.GetLevel() >= meter.GetMaxLevel())
+			{
+				meter.ResetLevel();
+				for (int i = 0; i < nPoo; ++i)
+				{
+					poos[i].IncreaseSpeed();
+				}
+			}
 		}
 	}
 	else

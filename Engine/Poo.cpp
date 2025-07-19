@@ -289,3 +289,24 @@ void Poo::Draw(Graphics& gfx) const
 	gfx.PutPixel(6 + x, 23 + y, 51, 28, 0);
 
 }
+
+void Poo::IncreaseSpeed()
+{
+	if (vx < 0)
+	{
+		--vx;
+	}
+	else
+	{
+		++vx;
+	}
+
+	if (vy < 0)
+	{
+		--vy;
+	}
+	else
+	{
+		++vy;
+	}
+}

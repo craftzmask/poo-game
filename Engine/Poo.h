@@ -9,6 +9,7 @@ public:
 	void Update();
 	bool TestCollision(const Dude& dude) const;
 	void Draw(Graphics& gfx) const;
+	void IncreaseSpeed();
 private:
 	int x;
 	int y;

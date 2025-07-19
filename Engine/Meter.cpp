@@ -19,3 +19,18 @@ void Meter::IncreaseLevel()
 		level++;
 	}
 }
+
+int Meter::GetLevel() const
+{
+	return level;
+}
+
+int Meter::GetMaxLevel() const
+{
+	return maxLevel;
+}
+
+void Meter::ResetLevel()
+{
+	level = 0;
+}
