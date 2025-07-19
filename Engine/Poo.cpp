@@ -43,7 +43,7 @@ void Poo::Update()
 	}
 }
 
-bool Poo::TestColliding(const Dude& dude)
+bool Poo::TestCollision(const Dude& dude) const
 {
 	assert(initialized);
 	const int right = x + width;

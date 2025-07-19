@@ -43,7 +43,7 @@ void Goal::UpdateColor()
 	}
 }
 
-bool Goal::TestColliding(const Dude& dude) const
+bool Goal::TestCollision(const Dude& dude) const
 {
 	const int right = x + width;
 	const int bottom = y + height;

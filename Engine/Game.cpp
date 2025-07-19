@@ -67,13 +67,13 @@ void Game::UpdateModel()
 		for (int i = 0; i < nPoo; ++i)
 		{
 			poos[i].Update();
-			if (poos[i].TestColliding(dude))
+			if (poos[i].TestCollision(dude))
 			{
 				gameIsOver = true;
 			}
 		}
 
-		if (goal.TestColliding(dude))
+		if (goal.TestCollision(dude))
 		{
 			goal.Respawn(xDist(rng), yDist(rng));
 		}

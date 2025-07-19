@@ -9,7 +9,7 @@ public:
 	void Draw(Graphics& gfx) const;
 	void Respawn(int xPos, int yPos);
 	void UpdateColor();
-	bool TestColliding(const Dude& dude) const;
+	bool TestCollision(const Dude& dude) const;
 private:
 	int x;
 	int y;

@@ -7,7 +7,7 @@ class Poo
 public:
 	void Init(int in_x, int in_y, int in_vx, int in_vy);
 	void Update();
-	bool TestColliding(const Dude& dude);
+	bool TestCollision(const Dude& dude) const;
 	void Draw(Graphics& gfx) const;
 private:
 	int x;
