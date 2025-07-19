@@ -26,6 +26,7 @@
 #include "Poo.h"
 #include "Dude.h"
 #include "Goal.h"
+#include "Meter.h"
 #include <random>
 
 class Game
@@ -52,6 +53,7 @@ private:
 	std::mt19937 rng;
 	std::uniform_int_distribution<int> xDist;
 	std::uniform_int_distribution<int> yDist;
+	Meter meter;
 	Dude dude;
 	static constexpr int nPoo = 10;
 	Poo poos[nPoo];

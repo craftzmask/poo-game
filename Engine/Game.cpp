@@ -29,7 +29,8 @@ Game::Game( MainWindow& wnd )
 	rng(rd()),
 	xDist(0, 770),
 	yDist(0, 570),
-	goal(xDist(rng), yDist(rng))
+	goal(xDist(rng), yDist(rng)),
+	meter(20, 20)
 {
 	std::uniform_int_distribution<int> vDist(-1, 1);
 	for (int i = 0; i < nPoo; ++i)
@@ -76,6 +77,7 @@ void Game::UpdateModel()
 		if (goal.TestCollision(dude))
 		{
 			goal.Respawn(xDist(rng), yDist(rng));
+			meter.IncreaseLevel();
 		}
 	}
 	else
@@ -28451,6 +28453,7 @@ void Game::ComposeFrame()
 
 		dude.Draw(gfx);
 		goal.Draw(gfx);
+		meter.Draw(gfx);
 	}
 	else
 	{
