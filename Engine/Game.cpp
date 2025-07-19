@@ -57,6 +57,8 @@ void Game::Go()
 
 void Game::UpdateModel()
 {
+	goal.UpdateColor();
+
 	if (gameIsStarted && !gameIsOver)
 	{
 		dude.Update(wnd.kbd);

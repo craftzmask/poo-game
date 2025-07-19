@@ -17,6 +17,32 @@ void Goal::Respawn(int xPos, int yPos)
 	y = yPos;
 }
 
+void Goal::UpdateColor()
+{
+	if (isIncreasing)
+	{
+		if (c.GetR() >= 253)
+		{
+			isIncreasing = false;
+		}
+		else
+		{
+			c = Color(c.GetR() + 2, c.GetG() + 4, c.GetB() + 4);
+		}
+	}
+	else
+	{
+		if (c.GetR() <= 127)
+		{
+			isIncreasing = true;
+		}
+		else
+		{
+			c = Color(c.GetR() - 2, c.GetG() - 4, c.GetB() - 4);
+		}
+	}
+}
+
 bool Goal::TestColliding(const Dude& dude) const
 {
 	const int right = x + width;
