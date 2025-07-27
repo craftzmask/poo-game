@@ -32,12 +32,12 @@ Game::Game( MainWindow& wnd )
 	goal(xDist(rng), yDist(rng)),
 	meter(20, 20)
 {
-	std::uniform_int_distribution<int> vDist(-1, 1);
+	std::uniform_real_distribution<float> vDist(-1, 1);
 	for (int i = 0; i < nPoo; ++i)
 	{
 		// Ensure all poos move
-		int vx = vDist(rng);
-		int vy = vDist(rng);
+		float vx = vDist(rng);
+		float vy = vDist(rng);
 		while (vx == 0 && vy == 0)
 		{
 			vx = vDist(rng);

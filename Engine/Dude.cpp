@@ -364,22 +364,22 @@ void Dude::Draw(Graphics& gfx) const
 	gfx.PutPixel(12 + x, 19 + y, 0, 0, 0);
 }
 
-int Dude::GetX() const
+float Dude::GetX() const
 {
 	return x;
 }
 
-int Dude::GetY() const
+float Dude::GetY() const
 {
 	return y;
 }
 
-int Dude::GetWidth() const
+float Dude::GetWidth() const
 {
 	return width;
 }
 
-int Dude::GetHeight() const
+float Dude::GetHeight() const
 {
 	return height;
 }
