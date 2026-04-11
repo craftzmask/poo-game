@@ -55,15 +55,25 @@ private:
 	const int dudeHeight = 20;
 	int poo0X = 200;
 	int poo0Y = 400;
+	int poo0vx = 1;
+	int poo0vy = 1;
 	bool isPoo0Eaten = false;
+
 	int poo1X = 100;
 	int poo1Y = 200;
+	int poo1vx = -1;
+	int poo1vy = 1;
 	bool isPoo1Eaten = false;
+
 	int poo2X = 400;
 	int poo2Y = 200;
+	int poo2vx = -1;
+	int poo2vy = -1;
 	bool isPoo2Eaten = false;
+
 	const int pooWidth = 24;
 	const int pooHeight = 24;
+
 	bool isGameStarted = false;
 	/********************************/
 };
