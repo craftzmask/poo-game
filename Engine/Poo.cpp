@@ -1,6 +1,6 @@
 #include "Poo.h"
 
-Poo::Poo(int x, int y, int vx, int vy)
+void Poo::Init(int x, int y, int vx, int vy)
 {
 	this->x = x;
 	this->y = y;

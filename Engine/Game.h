@@ -46,20 +46,9 @@ private:
 	Graphics gfx;
 	/********************************/
 	/*  User Variables              */
-	std::random_device rd;
-	std::mt19937 rng;
-	std::uniform_int_distribution<int> xDist;
-	std::uniform_int_distribution<int> yDist;
+	static constexpr int nPoo = 16;
 	Dude dude;
-	Poo poo0;
-	Poo poo1;
-	Poo poo2;
-	Poo poo3;
-	Poo poo4;
-	Poo poo5;
-	Poo poo6;
-	Poo poo7;
-	Poo poo8;
+	Poo poos[nPoo];
 	bool isGameStarted = false;
 	/********************************/
 };

@@ -5,7 +5,7 @@
 class Poo
 {
 public:
-	Poo(int x, int y, int vx, int vy);
+	void Init(int x, int y, int vx, int vy);
 	void Update();
 	void Draw(Graphics& gfx) const;
 	void ProcessConsumption(const Dude& dude);
