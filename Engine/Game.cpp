@@ -60,25 +60,15 @@ void Game::UpdateModel()
 	if (isGameStarted)
 	{
 		dude.Update(wnd.kbd);
-
-		if (IsEaten(dude.x, dude.y, Dude::width, Dude::height, poo0.x, poo0.y, Poo::width, Poo::height))
-		{
-			poo0.isEaten = true;
-		}
-		if (IsEaten(dude.x, dude.y, Dude::width, Dude::height, poo1.x, poo1.y, Poo::width, Poo::height))
-		{
-			poo1.isEaten = true;
-		}
-		if (IsEaten(dude.x, dude.y, Dude::width, Dude::height, poo2.x, poo2.y, Poo::width, Poo::height))
-		{
-			poo2.isEaten = true;
-		}
+		dude.ClampToScreen();
 	
 		poo0.Update();
 		poo1.Update();
 		poo2.Update();
 
-		dude.ClampToScreen();
+		poo0.ProcessConsumption(dude);
+		poo1.ProcessConsumption(dude);
+		poo2.ProcessConsumption(dude);
 	}
 	else
 	{

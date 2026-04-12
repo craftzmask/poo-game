@@ -264,3 +264,19 @@ void Poo::Draw(Graphics& gfx) const
 	gfx.PutPixel(5 + x, 23 + y, 51, 28, 0);
 	gfx.PutPixel(6 + x, 23 + y, 51, 28, 0);
 }
+
+void Poo::ProcessConsumption(const Dude& dude)
+{
+	const int pooRight = x + width;
+	const int pooBottom = y + height;
+	const int dudeRight = dude.x + Dude::width;
+	const int dudeBottom = dude.y + Dude::height;
+
+	if (pooRight >= dude.x &&
+		x <= dudeRight &&
+		y <= dudeBottom &&
+		pooBottom >= dude.y)
+	{
+		isEaten = true;
+	}
+}
