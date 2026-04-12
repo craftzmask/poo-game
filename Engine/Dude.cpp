@@ -339,3 +339,25 @@ void Dude::Draw(Graphics& gfx) const
 	gfx.PutPixel(11 + x, 19 + y, 0, 0, 0);
 	gfx.PutPixel(12 + x, 19 + y, 0, 0, 0);
 }
+
+void Dude::ClampToScreen()
+{
+	const int right = x + width;
+	if (x < 0)
+	{
+		x = 0;
+	}
+	else if (right >= Graphics::ScreenWidth)
+	{
+		x = Graphics::ScreenWidth - width - 1;
+	}
+	const int bottom = y + height;
+	if (y < 0)
+	{
+		y = 0;
+	}
+	else if (bottom >= Graphics::ScreenHeight)
+	{
+		y = Graphics::ScreenHeight - height - 1;
+	}
+}

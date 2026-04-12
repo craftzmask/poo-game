@@ -78,46 +78,11 @@ void Game::UpdateModel()
 		poo1.Update();
 		poo2.Update();
 
-		dude.x = ClampScreenX(dude.x, Dude::width);
-		dude.y = ClampScreenY(dude.y, Dude::height);
+		dude.ClampToScreen();
 	}
 	else
 	{
 		isGameStarted = wnd.kbd.KeyIsPressed(VK_RETURN);
-	}
-}
-
-int Game::ClampScreenX(int x, int width)
-{
-	const int right = x + width;
-	if (x < 0)
-	{
-		return 0;
-	}
-	else if (right >= gfx.ScreenWidth)
-	{
-		return gfx.ScreenWidth - width - 1;
-	}
-	else
-	{
-		return x;
-	}
-}
-
-int Game::ClampScreenY(int y, int height)
-{
-	const int bottom = y + height;
-	if (y < 0)
-	{
-		return 0;
-	}
-	else if (bottom >= gfx.ScreenHeight)
-	{
-		return gfx.ScreenHeight - height - 1;
-	}
-	else
-	{
-		return y;
 	}
 }
 

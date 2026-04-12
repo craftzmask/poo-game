@@ -39,8 +39,6 @@ private:
 	void UpdateModel();
 	/********************************/
 	/*  User Functions              */
-	int ClampScreenX(int x, int width);
-	int ClampScreenY(int y, int height);
 	bool IsEaten(int x0, int y0, int width0, int height0, int x1, int y1, int width1, int height1);
 	/********************************/
 private:
