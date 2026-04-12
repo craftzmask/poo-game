@@ -23,6 +23,7 @@
 #include "Keyboard.h"
 #include "Mouse.h"
 #include "Graphics.h"
+#include "Poo.h"
 
 class Game
 {
@@ -37,7 +38,6 @@ private:
 	/********************************/
 	/*  User Functions              */
 	void DrawFace(int x, int y);
-	void DrawPoo(int x, int y);
 	void DrawGameOver(int x, int y);
 	void DrawGameTitle(int x, int y);
 	int ClampScreenX(int x, int width);
@@ -53,26 +53,10 @@ private:
 	int dudeY = 300;
 	const int dudeWidth = 20;
 	const int dudeHeight = 20;
-	int poo0X = 200;
-	int poo0Y = 400;
-	int poo0vx = 1;
-	int poo0vy = 1;
-	bool isPoo0Eaten = false;
-
-	int poo1X = 100;
-	int poo1Y = 200;
-	int poo1vx = -1;
-	int poo1vy = 1;
-	bool isPoo1Eaten = false;
-
-	int poo2X = 400;
-	int poo2Y = 200;
-	int poo2vx = -1;
-	int poo2vy = -1;
-	bool isPoo2Eaten = false;
-
-	const int pooWidth = 24;
-	const int pooHeight = 24;
+	
+	Poo poo0;
+	Poo poo1;
+	Poo poo2;
 
 	bool isGameStarted = false;
 	/********************************/
