@@ -92,10 +92,9 @@ bool Game::IsEaten(int x0, int y0, int width0, int height0, int x1, int y1, int 
 
 void Game::ComposeFrame()
 {
-	dude.Draw(gfx);
-
 	if (isGameStarted)
 	{
+		dude.Draw(gfx);
 		if (!poo0.isEaten)
 		{
 			poo0.Draw(gfx);
