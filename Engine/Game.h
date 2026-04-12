@@ -26,6 +26,7 @@
 #include "Poo.h"
 #include "Dude.h"
 #include "Sprite.h"
+#include "Goal.h"
 #include <random>
 
 class Game
@@ -46,9 +47,15 @@ private:
 	Graphics gfx;
 	/********************************/
 	/*  User Variables              */
+	std::random_device rd;
+	std::mt19937 rng;
+	std::uniform_int_distribution<int> xDist;
+	std::uniform_int_distribution<int> yDist;
+
 	static constexpr int nPoo = 16;
 	Dude dude;
 	Poo poos[nPoo];
+	Goal goal;
 	bool isGameStarted = false;
 	bool isGameOver = false;
 	/********************************/

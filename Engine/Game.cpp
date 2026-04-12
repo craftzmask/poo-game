@@ -25,18 +25,18 @@
 Game::Game( MainWindow& wnd )
 	:
 	wnd( wnd ),
-	gfx( wnd )
+	gfx( wnd ),
+	rng(rd()),
+	xDist(0, 770),
+	yDist(0, 570)
 {
-	std::random_device rd;
-	std::mt19937 rng(rd());
-	std::uniform_int_distribution<int> xDist(0, 770);
-	std::uniform_int_distribution<int> yDist(0, 570);
 	std::uniform_int_distribution<int> vDist(-1, 1);
-
 	for (int i = 0; i < nPoo; i++)
 	{
 		poos[i].Init(xDist(rng), yDist(rng), vDist(rng), vDist(rng));
 	}
+
+	goal.Respawn(xDist(rng), yDist(rng));
 }
 
 void Game::Go()
@@ -56,6 +56,11 @@ void Game::UpdateModel()
 			dude.Update(wnd.kbd);
 			dude.ClampToScreen();
 
+			if (goal.IsCollected(dude))
+			{
+				goal.Respawn(xDist(rng), yDist(rng));
+			}
+
 			for (int i = 0; i < nPoo; i++)
 			{
 				poos[i].Update();
@@ -74,6 +79,7 @@ void Game::ComposeFrame()
 	if (isGameStarted)
 	{
 		dude.Draw(gfx);
+		goal.Draw(gfx);
 
 		for (int i = 0; i < nPoo; i++)
 		{
