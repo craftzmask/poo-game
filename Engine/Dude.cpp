@@ -12,7 +12,7 @@ Dude::Dude(int x, int y)
 	this->y = y;
 }
 
-void Dude::Update(Keyboard& kbd)
+void Dude::Update(const Keyboard& kbd)
 {
 	if (kbd.KeyIsPressed(VK_UP))
 	{
