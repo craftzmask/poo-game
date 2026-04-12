@@ -50,5 +50,6 @@ private:
 	Dude dude;
 	Poo poos[nPoo];
 	bool isGameStarted = false;
+	bool isGameOver = false;
 	/********************************/
 };

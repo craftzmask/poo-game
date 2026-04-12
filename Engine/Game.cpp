@@ -51,13 +51,16 @@ void Game::UpdateModel()
 {
 	if (isGameStarted)
 	{
-		dude.Update(wnd.kbd);
-		dude.ClampToScreen();
-
-		for (int i = 0; i < nPoo; i++)
+		if (!isGameOver)
 		{
-			poos[i].Update();
-			poos[i].ProcessConsumption(dude);
+			dude.Update(wnd.kbd);
+			dude.ClampToScreen();
+
+			for (int i = 0; i < nPoo; i++)
+			{
+				poos[i].Update();
+				poos[i].ProcessConsumption(dude);
+			}
 		}
 	}
 	else
@@ -71,21 +74,21 @@ void Game::ComposeFrame()
 	if (isGameStarted)
 	{
 		dude.Draw(gfx);
+
 		for (int i = 0; i < nPoo; i++)
 		{
-			if (!poos[i].IsEaten())
+			if (poos[i].IsEaten())
+			{
+				isGameOver = true;
+			}
+			else
 			{
 				poos[i].Draw(gfx);
 			}
 		}
-		
-		bool allEaten = true;
-		for (int i = 0; i < nPoo; i++)
-		{
-			allEaten = allEaten && poos[i].IsEaten();
-		}
+	
 
-		if (allEaten)
+		if (isGameOver)
 		{
 			Sprite::DrawGameOver(gfx, 358, 268);
 		}
