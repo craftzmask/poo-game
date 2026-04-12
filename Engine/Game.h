@@ -54,6 +54,12 @@ private:
 	Poo poo0;
 	Poo poo1;
 	Poo poo2;
+	Poo poo3;
+	Poo poo4;
+	Poo poo5;
+	Poo poo6;
+	Poo poo7;
+	Poo poo8;
 	bool isGameStarted = false;
 	/********************************/
 };
