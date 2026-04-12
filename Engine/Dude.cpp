@@ -1,5 +1,17 @@
 #include "Dude.h"
 
+Dude::Dude()
+{
+	x = 400;
+	y = 300;
+}
+
+Dude::Dude(int x, int y)
+{
+	this->x = x;
+	this->y = y;
+}
+
 void Dude::Update(Keyboard& kbd)
 {
 	if (kbd.KeyIsPressed(VK_UP))
@@ -360,4 +372,14 @@ void Dude::ClampToScreen()
 	{
 		y = Graphics::ScreenHeight - height - 1;
 	}
+}
+
+int Dude::GetX() const
+{
+	return x;
+}
+
+int Dude::GetY() const
+{
+	return y;
 }

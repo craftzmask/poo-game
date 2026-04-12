@@ -5,11 +5,17 @@
 class Dude
 {
 public:
+	Dude();
+	Dude(int x, int y);
 	void Update(Keyboard& kbd);
 	void Draw(Graphics& gfx) const;
 	void ClampToScreen();
-	int x = 400;
-	int y = 300;
+	int GetX() const;
+	int GetY() const;
+private:
+	int x;
+	int y;
+public:
 	static constexpr int width = 20;
 	static constexpr int height = 20;
 };
