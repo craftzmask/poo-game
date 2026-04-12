@@ -26,6 +26,7 @@
 #include "Poo.h"
 #include "Dude.h"
 #include "Sprite.h"
+#include <random>
 
 class Game
 {
@@ -39,13 +40,16 @@ private:
 	void UpdateModel();
 	/********************************/
 	/*  User Functions              */
-	bool IsEaten(int x0, int y0, int width0, int height0, int x1, int y1, int width1, int height1);
 	/********************************/
 private:
 	MainWindow& wnd;
 	Graphics gfx;
 	/********************************/
 	/*  User Variables              */
+	std::random_device rd;
+	std::mt19937 rng;
+	std::uniform_int_distribution<int> xDist;
+	std::uniform_int_distribution<int> yDist;
 	Dude dude;
 	Poo poo0;
 	Poo poo1;

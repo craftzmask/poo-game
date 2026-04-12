@@ -25,26 +25,14 @@
 Game::Game( MainWindow& wnd )
 	:
 	wnd( wnd ),
-	gfx( wnd )
+	gfx( wnd ),
+	rng(rd()),
+	xDist(0, 770),
+	yDist(0, 570),
+	poo0(xDist(rng), yDist(rng), 1, -1),
+	poo1(xDist(rng), yDist(rng), -1, -1),
+	poo2(xDist(rng), yDist(rng), 1, 1)
 {
-	std::random_device rd;
-	std::mt19937 rng(rd());
-	std::uniform_int_distribution<int> xDist(0, 770);
-	std::uniform_int_distribution<int> yDist(0, 570);
-	poo0.x = xDist(rng);
-	poo0.y = yDist(rng);
-	poo0.vx = 1;
-	poo0.vy = -1;
-
-	poo1.x = xDist(rng);
-	poo1.y = yDist(rng);
-	poo1.vx = -1;
-	poo1.vy = -1;
-
-	poo2.x = xDist(rng);
-	poo2.y = yDist(rng);
-	poo2.vx = 1;
-	poo2.vy = 1;
 }
 
 void Game::Go()
@@ -76,39 +64,25 @@ void Game::UpdateModel()
 	}
 }
 
-bool Game::IsEaten(int x0, int y0, int width0, int height0, int x1, int y1, int width1, int height1)
-{
-	const int right0 = x0 + width0;
-	const int bottom0 = y0 + height0;
-	const int right1 = x1 + width1;
-	const int bottom1 = y1 + height1;
-
-	return
-		right0 >= x1 &&
-		x0 <= right1 &&
-		y0 <= bottom1 &&
-		bottom0 >= y1;
-}
-
 void Game::ComposeFrame()
 {
 	if (isGameStarted)
 	{
 		dude.Draw(gfx);
-		if (!poo0.isEaten)
+		if (!poo0.IsEaten())
 		{
 			poo0.Draw(gfx);
 		}
-		if (!poo1.isEaten)
+		if (!poo1.IsEaten())
 		{
 			poo1.Draw(gfx);
 		}
-		if (!poo2.isEaten)
+		if (!poo2.IsEaten())
 		{
 			poo2.Draw(gfx);
 		}
 
-		if (poo0.isEaten && poo1.isEaten && poo2.isEaten)
+		if (poo0.IsEaten() && poo1.IsEaten() && poo2.IsEaten())
 		{
 			Sprite::DrawGameOver(gfx, 358, 268);
 		}

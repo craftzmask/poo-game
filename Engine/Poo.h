@@ -5,9 +5,12 @@
 class Poo
 {
 public:
+	Poo(int x, int y, int vx, int vy);
 	void Update();
 	void Draw(Graphics& gfx) const;
 	void ProcessConsumption(const Dude& dude);
+	bool IsEaten() const;
+private:
 	int x;
 	int y;
 	int vx;

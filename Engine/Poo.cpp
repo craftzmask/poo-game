@@ -1,5 +1,13 @@
 #include "Poo.h"
 
+Poo::Poo(int x, int y, int vx, int vy)
+{
+	this->x = x;
+	this->y = y;
+	this->vx = vx;
+	this->vy = vy;
+}
+
 void Poo::Update()
 {
 	x += vx;
@@ -279,4 +287,9 @@ void Poo::ProcessConsumption(const Dude& dude)
 	{
 		isEaten = true;
 	}
+}
+
+bool Poo::IsEaten() const
+{
+	return isEaten;
 }
