@@ -28,7 +28,8 @@ Game::Game( MainWindow& wnd )
 	gfx( wnd ),
 	rng(rd()),
 	xDist(0, 770),
-	yDist(0, 570)
+	yDist(0, 570),
+	meter(30, 30)
 {
 	std::uniform_int_distribution<int> vDist(-1, 1);
 	for (int i = 0; i < nPoo; i++)
@@ -60,6 +61,7 @@ void Game::UpdateModel()
 			if (goal.IsCollected(dude))
 			{
 				goal.Respawn(xDist(rng), yDist(rng));
+				meter.LevelUp();
 			}
 
 			for (int i = 0; i < nPoo; i++)
@@ -79,6 +81,7 @@ void Game::ComposeFrame()
 {
 	if (isGameStarted)
 	{
+		meter.Draw(gfx);
 		dude.Draw(gfx);
 		goal.Draw(gfx);
 

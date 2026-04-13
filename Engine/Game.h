@@ -27,6 +27,7 @@
 #include "Dude.h"
 #include "Sprite.h"
 #include "Goal.h"
+#include "Meter.h"
 #include <random>
 
 class Game
@@ -56,6 +57,7 @@ private:
 	Dude dude;
 	Poo poos[nPoo];
 	Goal goal;
+	Meter meter;
 	bool isGameStarted = false;
 	bool isGameOver = false;
 	/********************************/
