@@ -11,6 +11,32 @@ void Goal::Draw(Graphics& gfx)
 	gfx.DrawRectDim(x, y, width, height, c);
 }
 
+void Goal::Glow()
+{
+	if (isRedIncreasing)
+	{
+		if (c.GetR() > 250)
+		{
+			isRedIncreasing = false;
+		}
+		else
+		{
+			c = Color(c.GetR() + 2, c.GetG() + 4, c.GetB() + 4);
+		}
+	}
+	else
+	{
+		if (c.GetR() < 130)
+		{
+			isRedIncreasing = true;
+		}
+		else
+		{
+			c = Color(c.GetR() - 2, c.GetG() - 4, c.GetB() - 4);
+		}
+	}
+}
+
 bool Goal::IsCollected(const Dude& dude) const
 {
 	const int right = x + width;

@@ -49,6 +49,7 @@ void Game::Go()
 
 void Game::UpdateModel()
 {
+	goal.Glow();
 	if (isGameStarted)
 	{
 		if (!isGameOver)
